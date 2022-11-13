@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import '@coreui/coreui/dist/css/coreui.min.css'
-import { CContainer, CHeader, CHeaderBrand, CForm, CFormSelect, CFormInput, CButton } from '@coreui/react'
+import { CContainer, CHeader, CHeaderBrand, CForm, CFormSelect, CFormInput, CButton, CPopover } from '@coreui/react'
 import { StandingsTable } from '../components/standingstable'
 import { useEffect, useState } from 'react'
 
@@ -63,15 +63,26 @@ export default function Home() {
               src="/favicon.png"
               width="20"
               height="20"
+              className="me-3"
             />
             {leagueData.name}
           </CHeaderBrand>
           <CForm className="d-flex" onSubmit={handleSubmit}>
+            <CPopover
+              title="How does this work?"
+              content="Look at your series or tournament URL on matchplay's site. 
+              If it looks like https://matchplay.events/live/series/[ID], it's a series.
+              If it looks like, https://matchplay.events/live/[ID], it's a tournament.
+              The ID is the alphanumeric code at the end of the URL."
+              placement="bottom"
+            >
+              <CButton className="me-3">?</CButton>
+            </CPopover>
             <CFormSelect name="eventType" className="me-3" required aria-label="Default select example" options={[
               { label: 'Series', value: 'series' },
               { label: 'Tournament', value: 'tournament' }
             ]}/>
-            <CFormInput name='eventID' required className="me-3" type="search" placeholder="Tournament or Series" />
+            <CFormInput name='eventID' required className="me-3" type="search" placeholder="ID" />
             <CButton type="submit" color="success" variant="outline">
               Go
             </CButton>
