@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const getLeagueData = async () => {
         const response = await fetch(matchPlayBase + id);
         if (! acceptableResponses.includes(response.status) ){
-            return "hrmm, something went wrong, is your ID right?"
+            return "hrmm, something went wrong, is your ID right?";
         }
         const jsonData = await response.json();
         return jsonData.name;
