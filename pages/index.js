@@ -61,8 +61,8 @@ export default function Home() {
           <CHeaderBrand>
             <img
               src="/favicon.png"
-              width="20"
-              height="20"
+              width="30"
+              height="30"
               className="me-3"
             />
             {leagueData.name}
