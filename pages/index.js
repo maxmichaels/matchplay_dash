@@ -1,5 +1,4 @@
 import Head from 'next/head'
-//import styles from '../styles/Home.module.css'
 import '@coreui/coreui/dist/css/coreui.min.css'
 import { CContainer, CHeader, CHeaderBrand, CForm, CFormSelect, CFormInput, CButton } from '@coreui/react'
 import { StandingsTable } from '../components/standingstable'
@@ -50,15 +49,23 @@ export default function Home() {
   }
 
   return (
-    <CContainer fluid>
+    <CContainer id="dashContainer" fluid>
       <Head>
         <title>Matchplay.Events Series Dashboard</title>
         <meta name="description" content="Matchplay.events real-time dashboard" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
+
       <CHeader>
             <CContainer fluid>
-                <CHeaderBrand>{leagueData.name}</CHeaderBrand>
+                <CHeaderBrand>
+                  <img
+                    src="/favicon.png"
+                    width="20"
+                    height="20"
+                    />
+                  {leagueData.name}
+                </CHeaderBrand>
                 <CForm className="d-flex" onSubmit={handleSubmit}>
                     <CFormSelect name="eventType" className="me-3" required aria-label="Default select example" options={[
                         { label: 'Series', value: 'series' },
