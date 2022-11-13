@@ -6,7 +6,7 @@ export function Player({player}) {
         <CTableRow>
             <CTableDataCell>{position}</CTableDataCell>
             <CTableDataCell>{name}</CTableDataCell>
-            {custom_count
+            {custom_count >= 0
             ? <CTableDataCell>{custom_count}</CTableDataCell>
             : <CTableDataCell>{points_adj ? points_adj : points}</CTableDataCell>
             }
