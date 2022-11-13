@@ -35,10 +35,10 @@ export default function Home() {
   
   const [validated, setValidated] = useState(false)
   const handleSubmit = (event) => {
-    const form = event.currentTarget
+    const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault()
-      event.stopPropagation()
+      event.preventDefault();
+      event.stopPropagation();
     }
     setValidated(true);
     setLeagueInfo({
@@ -57,27 +57,27 @@ export default function Home() {
       </Head>
 
       <CHeader>
-            <CContainer fluid>
-                <CHeaderBrand>
-                  <img
-                    src="/favicon.png"
-                    width="20"
-                    height="20"
-                    />
-                  {leagueData.name}
-                </CHeaderBrand>
-                <CForm className="d-flex" onSubmit={handleSubmit}>
-                    <CFormSelect name="eventType" className="me-3" required aria-label="Default select example" options={[
-                        { label: 'Series', value: 'series' },
-                        { label: 'Tournament', value: 'tournament' }
-                    ]}/>
-                    <CFormInput name='eventID' required className="me-3" type="search" placeholder="Tournament or Series" />
-                    <CButton type="submit" color="success" variant="outline">
-                        Go
-                    </CButton>
-                </CForm>
-            </CContainer>
-        </CHeader>
+        <CContainer fluid>
+          <CHeaderBrand>
+            <img
+              src="/favicon.png"
+              width="20"
+              height="20"
+            />
+            {leagueData.name}
+          </CHeaderBrand>
+          <CForm className="d-flex" onSubmit={handleSubmit}>
+            <CFormSelect name="eventType" className="me-3" required aria-label="Default select example" options={[
+              { label: 'Series', value: 'series' },
+              { label: 'Tournament', value: 'tournament' }
+            ]}/>
+            <CFormInput name='eventID' required className="me-3" type="search" placeholder="Tournament or Series" />
+            <CButton type="submit" color="success" variant="outline">
+              Go
+            </CButton>
+          </CForm>
+        </CContainer>
+      </CHeader>
       <StandingsTable playerData={leagueData.players}/>
     </CContainer>
   )
